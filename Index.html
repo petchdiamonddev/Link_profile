@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dekpetch</title>
+
+    <!-- Google Fonts + Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-light: #ffffff;
+            --text-light: #333333;
+            --bg-dark: #121212;
+            --text-dark: #f0f0f0;
+            --primary: #E1306C;
+            --secondary: #FF9500;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        [data-theme="light"] {
+            --bg: var(--bg-light);
+            --text: var(--text-light);
+        }
+
+        [data-theme="dark"] {
+            --bg: var(--bg-dark);
+            --text: var(--text-dark);
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+            position: absolute;
+            top: 0;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .material-icons {
+            font-size: 28px;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 150px auto 20px;
+            border: 3px solid var(--primary);
+            animation: bounce 2s infinite alternate;
+        }
+
+        .link-container {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+            animation: slideUp 0.8s ease;
+        }
+
+        .link-button {
+            display: block;
+            padding: 12px;
+            margin: 15px auto;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 90%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .link-button:active {
+            transform: scale(0.98);
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #E1306C, #C13584);
+        }
+
+        .donate {
+            background: linear-gradient(45deg, #FF9500, #FF5E3A);
+        }
+
+        .tiktok {
+            background: linear-gradient(45deg, #000000, #FE2C55);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <button class="theme-toggle" id="themeToggle">
+            <span class="material-icons" id="themeIcon">dark_mode</span>
+        </button>
+    </div>
+
+    <img src="https://github.com/petchdiamonddev.png" alt="Profile" class="profile-pic">
+
+    <div class="link-container">
+        <a href="https://www.instagram.com/23petchdiamon/" class="link-button instagram" target="_blank">
+            Instagram
+        </a>
+        <a href="https://easydonate.app/petchdiamon" class="link-button donate" target="_blank">
+            Donate
+        </a>
+        <a href="https://www.tiktok.com/@diamond_vip23" class="link-button tiktok" target="_blank">
+            TikTok
+        </a>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        // ตรวจสอบธีมเริ่มต้นตามอุปกรณ์
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = 'light_mode';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeIcon.textContent = 'dark_mode';
+        }
+
+        // ปุ่มสลับธีม
+        themeToggle.addEventListener('click', function () {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            themeIcon.textContent = newTheme === 'dark' ? 'light_mode' : 'dark_mode';
+        });
+
+        // เพิ่มเอฟเฟกต์ตอนคลิกปุ่มลิงก์
+        const buttons = document.querySelectorAll('.link-button');
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
