@@ -17,9 +17,5 @@
 - Instagram: [@23petchdiamon](https://www.instagram.com/23petchdiamon/)
 - TikTok: [@diamond_vip23](https://www.tiktok.com/@diamond_vip23)
 
-## 🖼 Preview
-
-![Preview](./cc148c88-be11-40ba-b5c2-d7c4f429b34d.png)
-
 ## 🧑‍💻 นักพัฒนา
 **เพชร** – [GitHub](https://github.com/petchdiamonddev)
