@@ -123,6 +123,10 @@
             background: linear-gradient(45deg, #000000, #FE2C55);
         }
 
+        .roblox {
+            background: linear-gradient(45deg, #0078D4, #00A4EF);
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -164,6 +168,9 @@
         <a href="https://www.tiktok.com/@diamond_vip23" class="link-button tiktok" target="_blank">
             TikTok
         </a>
+        <a href="https://www.roblox.com/share?code=7138badad068ca41bd8d106b3e71a8a5&type=Server" class="link-button roblox" target="_blank">
+            Roblox Map
+        </a>
     </div>
 
     <script>
@@ -187,7 +194,7 @@
             themeIcon.textContent = newTheme === 'dark' ? 'light_mode' : 'dark_mode';
         });
 
-        // เพิ่มเอฟเฟกต์ตอนคลิกปุ่มลิงก์
+        // เอฟเฟกต์ตอนคลิกปุ่มลิงก์
         const buttons = document.querySelectorAll('.link-button');
         buttons.forEach(button => {
             button.addEventListener('click', function () {
